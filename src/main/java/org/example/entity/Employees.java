@@ -1,0 +1,30 @@
+package org.example.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "Employees")
+public class Employees {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    long id;
+    @Column(name = "firstName", nullable = false)
+    String firstName;
+    @Column(name = "lastName", nullable = false)
+    String lastName;
+    @Column(name = "position", nullable = false)
+    String position;
+    @Column(name = "salary", nullable = false)
+    double salary;
+    @OneToOne             //   <- Одно направленная связь! Один Employees имеет один адрес!
+    @JoinColumn(name = "addressId")
+    Address address;
+}
