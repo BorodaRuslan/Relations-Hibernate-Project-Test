@@ -1,5 +1,6 @@
 package org.example.repositiry;
 import java.util.List;
+import java.util.function.Predicate;
 
 
 public interface BaseOperationRepository<T> {
@@ -10,8 +11,10 @@ public interface BaseOperationRepository<T> {
 
     public T readById(long id);
 
-    public T update(long id);
+    public T update(long id, String position, double salary);
 
     public T delete(long id);
+
+
 
 }
