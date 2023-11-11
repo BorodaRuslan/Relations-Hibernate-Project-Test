@@ -24,7 +24,6 @@ public class Employees {
     String position;
     @Column(name = "salary", nullable = false)
     double salary;
-    @OneToOne             //   <- Одно направленная связь! Один Employees имеет один адрес!
-    @JoinColumn(name = "addressId")
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     Address address;
 }
