@@ -10,8 +10,12 @@ import java.util.List;
 
 public class EmployeesService {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeesService.class);
-    private EmployeesRepositoryImpl repository;
+    private final EmployeesRepositoryImpl repository;
     private StringBuilder stringBuilder;
+
+    public EmployeesService(EmployeesRepositoryImpl repository) {
+        this.repository = repository;
+    }
 
     public String getAllEmployees(){
         stringBuilder = new StringBuilder();
