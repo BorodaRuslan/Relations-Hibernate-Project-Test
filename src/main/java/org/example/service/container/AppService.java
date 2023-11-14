@@ -1,19 +1,20 @@
 package org.example.service.container;
 
-import org.example.controller.Controller;
+import org.example.controller.ReadEmployeesController;
 import org.example.repositiry.impl.EmployeesRepositoryImpl;
 import org.example.service.EmployeesService;
-import org.example.view.View;
+import org.example.view.ReadView;
 
-public class СontainerService {
+public class AppService {
 
     public void snowAllEmployees(){
-        View view = new View();
+        ReadView view = new ReadView();
         EmployeesRepositoryImpl repository = new EmployeesRepositoryImpl();
         EmployeesService service = new EmployeesService(repository);
-        Controller controller = new Controller(service, view);
+        ReadEmployeesController controller = new ReadEmployeesController(service, view);
 
-        controller.startApp();
+        controller.readAllEmployees();
+
     }
 
 

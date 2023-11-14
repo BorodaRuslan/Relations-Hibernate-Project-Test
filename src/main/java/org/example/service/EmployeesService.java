@@ -24,11 +24,13 @@ public class EmployeesService {
         if (!employeesList.isEmpty()){
             int count = 1;
             for (Employees empl: employeesList){
-                stringBuilder.append(count).append(" )").append(empl.getFirstName()).append(" ")
-                        .append(empl.getLastName()).append(" ").append(empl.getPosition())
-                        .append(" ").append(empl.getSalary()).append(" ")
+
+                stringBuilder.append(count).append(")").append(empl.getFirstName()).append(" ")
+                        .append(empl.getLastName()).append(". Position: ").append(empl.getPosition())
+                        .append(" Salary: ").append(empl.getSalary()).append("$ Home address: ")
                         .append(empl.getAddress().getCity()).append(" ")
                         .append(empl.getAddress().getZipCode()).append("\n");
+                count++;
             }
             return stringBuilder.toString();
         } else {

@@ -1,14 +1,14 @@
 package org.example.controller;
 
-import org.example.repositiry.impl.EmployeesRepositoryImpl;
 import org.example.service.EmployeesService;
-import org.example.view.View;
+import org.example.service.container.AppService;
+import org.example.view.AppView;
 
-public class Controller {
-    EmployeesService service;
-    private View view;
+public class AppController {
+    private AppService service;
+    private AppView view;
 
-    public Controller(EmployeesService service, View view) {
+    public AppController(AppService service, AppView view) {
         this.service = service;
         this.view = view;
     }
@@ -20,7 +20,7 @@ public class Controller {
     private void filter(int userChoose) {
         switch (userChoose) {
 //        case 1 -> service.createEmployees("Тут должна быть передача данных с viewCreate");
-            case 2 -> view.showOutput(service.getAllEmployees());
+            case 2 -> service.snowAllEmployees();
 
         }
 

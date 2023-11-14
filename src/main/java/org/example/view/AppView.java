@@ -1,27 +1,22 @@
 package org.example.view;
 
-import org.example.repositiry.impl.EmployeesRepositoryImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
 
-public class View {
+public class AppView {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(View.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppView.class);
 
-    public int options(){
+    public  int options(){
         Scanner scanner = new Scanner(System.in);
         int userChoose;
-        menu();
-
         do {
             menu();
             userChoose = scanner.nextInt();
-            if (userChoose <= 0 || userChoose > 2){
-                LOGGER.warn("Incorrect data entry. Please enter a valid menu number");
-            }
-        } while (userChoose <= 0 || userChoose > 2);
+
+        } while (userChoose < 0 || userChoose > 2);
         return userChoose;
 
 
