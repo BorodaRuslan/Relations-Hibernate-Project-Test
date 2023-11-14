@@ -10,6 +10,7 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @Setter
 @ToString
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "Employees")
 public class Employees {

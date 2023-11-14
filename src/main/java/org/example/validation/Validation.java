@@ -42,6 +42,6 @@ public class Validation {
 
     public static boolean isValidZipCode(String zipCode){
         // Проверка на неотрицательность, длину не более 6 символов и отсутствие букв и других символов
-        return zipCode.matches("\\d{1,6}") && Integer.parseInt(zipCode) >= 0;
+        return zipCode.matches("\\d{6}") && Integer.parseInt(zipCode) >= 0;
     }
 }

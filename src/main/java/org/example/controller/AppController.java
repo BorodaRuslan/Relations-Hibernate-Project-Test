@@ -19,7 +19,7 @@ public class AppController {
 
     private void filter(int userChoose) {
         switch (userChoose) {
-//        case 1 -> service.createEmployees("Тут должна быть передача данных с viewCreate");
+        case 1 -> service.createEmployees();
             case 2 -> service.snowAllEmployees();
 
         }
