@@ -13,29 +13,18 @@ public class CreateView {
     public Employees createNewEmployees() {
 
         Employees employees = null;
-
-        do {
-            String[] dataArray = dataNewEmployees();
-            if (Validation.isValidName(dataArray[0]) && Validation.isValidName(dataArray[1]) && Validation.isValidPosition(dataArray[2])
-                    && Validation.isValidSalary(dataArray[3]) && Validation.isValidCity(dataArray[4]) && Validation.isValidZipCode(dataArray[5])) {
-                Address address = Address.builder()
-                        .city(dataArray[4])
-                        .zipCode(dataArray[5])
-                        .build();
-                employees = Employees.builder()
-                        .firstName(dataArray[0])
-                        .lastName(dataArray[1])
-                        .position(dataArray[2])
-                        .salary(Double.parseDouble(dataArray[3]))
-                        .address(address)
-                        .build();
-                return employees;
-            } else {
-                System.out.println("Invalid data. Please follow the validation rules.");
-                dataNewEmployees();
-            }
-
-        } while (employees == null);
+        String[] dataArray = dataNewEmployees();
+        Address address = Address.builder()
+                .city(dataArray[4])
+                .zipCode(dataArray[5])
+                .build();
+        employees = Employees.builder()
+                .firstName(dataArray[0])
+                .lastName(dataArray[1])
+                .position(dataArray[2])
+                .salary(Double.parseDouble(dataArray[3]))
+                .address(address)
+                .build();
         return employees;
 
     }

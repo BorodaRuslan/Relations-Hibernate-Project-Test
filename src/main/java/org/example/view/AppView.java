@@ -16,7 +16,7 @@ public class AppView {
             menu();
             userChoose = scanner.nextInt();
 
-        } while (userChoose < 0 || userChoose > 2);
+        } while (userChoose < 0 || userChoose > 4);
         return userChoose;
 
 
@@ -30,6 +30,8 @@ public class AppView {
                 
                 1. Create new employee
                 2. See all employees
+                3. See employee by id
+                4. Delete employee
                 0. Exit the application
                 
                 """);

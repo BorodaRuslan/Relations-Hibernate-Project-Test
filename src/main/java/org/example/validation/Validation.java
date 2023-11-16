@@ -19,7 +19,7 @@ public class Validation {
     }
 
     public static boolean isValidPosition(String position){
-        String regex = "^[A-Za-z]{3,10}$";
+        String regex = "^[A-Za-z]{3,15}$";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(position);
@@ -28,13 +28,13 @@ public class Validation {
     public static boolean isValidSalary(String salary){
         try {
             double resultSalary = Double.parseDouble(salary);
-            return resultSalary >=0 && resultSalary <= 5000.0 && salary.matches("\\d+");
+            return resultSalary >=0 && salary.matches("\\d+");
         } catch (NumberFormatException e){
             return false;
         }
     }
     public static boolean isValidCity(String city){
-        String regex = "^[A-Za-z]{3,8}$";
+        String regex = "^[A-Za-z]{3,10}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(city);
         return matcher.matches();

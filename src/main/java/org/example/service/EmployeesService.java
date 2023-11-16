@@ -51,4 +51,33 @@ public class EmployeesService {
             return stringBuilder.append("User save error!").toString();
     }
 
+
+    public String readEmployeeById(Long id){
+        stringBuilder = new StringBuilder();
+        if (id >= 0){
+            Employees employee = repository.readById(id);
+            if (employee != null) {
+                return stringBuilder.append("Employee: ").append(employee.getFirstName()).append(" ").append(employee.getLastName())
+                        .append(" ").append("Employee position: ").append(employee.getPosition())
+                        .append(" ").append(employee.getSalary()).append(" ").append("Address: ")
+                        .append(employee.getAddress().getCity()).append(" ").append(employee.getAddress().getZipCode())
+                        .append("\n").toString();
+            }
+        }
+        return stringBuilder.append("Incorrect id").toString();
+    }
+
+    // Todo: This method doesn't work!
+
+
+    public String deleteEmployeeById(Long id){
+        stringBuilder = new StringBuilder();
+        Employees employee = repository.delete(id);
+        if (employee != null){
+            return stringBuilder.append("The employee: ").append(employee.getFirstName()).append(" ")
+                    .append(employee.getLastName()).append(" ").append("was removed!").toString();
+        }
+        return stringBuilder.append("There is no such employee in the database!").toString();
+    }
+
 }

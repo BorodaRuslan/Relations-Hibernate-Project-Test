@@ -5,8 +5,8 @@ import org.example.service.container.AppService;
 import org.example.view.AppView;
 
 public class AppController {
-    private AppService service;
-    private AppView view;
+    private final AppService service;
+    private final AppView view;
 
     public AppController(AppService service, AppView view) {
         this.service = service;
@@ -19,8 +19,9 @@ public class AppController {
 
     private void filter(int userChoose) {
         switch (userChoose) {
-        case 1 -> service.createEmployees();
+            case 1 -> service.createEmployees();
             case 2 -> service.snowAllEmployees();
+            case 3 -> service.readByIdEmployee();
 
         }
 
