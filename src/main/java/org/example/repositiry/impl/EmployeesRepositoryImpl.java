@@ -10,7 +10,10 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 
@@ -107,6 +110,28 @@ public class EmployeesRepositoryImpl implements BaseOperationRepository<Employee
                     .setParameter("employeesId", employeesId)
                     .uniqueResult();
             return count > 0;
+    }
+
+    // This method makes sorting by name!
+    public List<Employees> sortByName(){
+        try (Session session = sessionFactory.openSession()){
+           String query = "FROM Employees ORDER BY firstName";
+            return session.createQuery(query, Employees.class).list();
+        } catch (HibernateException e){
+            LOGGER.error("Hibernate error sorting by name: " + e);
+        }
+        return Collections.emptyList();
+    }
+
+    // This method makes sorting by salary!
+    public List<Employees> sortBySalary(){
+        try (Session session = sessionFactory.openSession()){
+            String query = " FROM Employees ORDER BY salary";
+            return session.createQuery(query, Employees.class).list();
+        } catch (HibernateException e){
+            LOGGER.error("Hibernate error sorting by salary: " + e);
+        }
+        return Collections.emptyList();
     }
 
 }

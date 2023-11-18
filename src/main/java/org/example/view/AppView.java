@@ -16,7 +16,7 @@ public class AppView {
             menu();
             userChoose = scanner.nextInt();
 
-        } while (userChoose < 0 || userChoose > 4);
+        } while (userChoose < 0 || userChoose > 5);
         return userChoose;
 
 
@@ -28,10 +28,11 @@ public class AppView {
                 
                 Hello brother! Make your choose a menu number
                 
-                1. Create new employee
-                2. See all employees
-                3. See employee by id
-                4. Delete employee
+                1. Create new employee.
+                2. See all employees.
+                3. See employee by id.
+                4. Delete employee.
+                5. Sorting employees.
                 0. Exit the application
                 
                 """);

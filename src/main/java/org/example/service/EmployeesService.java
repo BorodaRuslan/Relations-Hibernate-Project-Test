@@ -80,4 +80,19 @@ public class EmployeesService {
         return stringBuilder.append("There is no such employee in the database!").toString();
     }
 
+    public String sortByName(){
+        stringBuilder = new StringBuilder();
+        List<Employees> employees = repository.sortByName();
+        if (!employees.isEmpty()){
+            for (Employees employ: employees){
+                return stringBuilder.append(employ.getFirstName()).append(" ").append(employ.getLastName())
+                        .append(" ").append(employ.getPosition()).append(" ").append(employ.getSalary())
+                        .append(" ").append(employ.getAddress().getCity()).append(" ")
+                        .append(employ.getAddress().getZipCode()).append("\n").toString();
+            }
+        }
+        return stringBuilder.append("Empty database ").toString();
+    }
+
+
 }

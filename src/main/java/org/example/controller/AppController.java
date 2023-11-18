@@ -22,6 +22,7 @@ public class AppController {
             case 1 -> service.createEmployees();
             case 2 -> service.snowAllEmployees();
             case 3 -> service.readByIdEmployee();
+            case 4 -> service.deleteEmployee();
 
         }
 
