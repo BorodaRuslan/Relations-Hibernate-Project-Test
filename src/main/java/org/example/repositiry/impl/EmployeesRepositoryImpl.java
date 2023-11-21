@@ -126,7 +126,7 @@ public class EmployeesRepositoryImpl implements BaseOperationRepository<Employee
     // This method makes sorting by salary!
     public List<Employees> sortBySalary(){
         try (Session session = sessionFactory.openSession()){
-            String query = " FROM Employees ORDER BY salary";
+            String query = "FROM Employees ORDER BY salary";
             return session.createQuery(query, Employees.class).list();
         } catch (HibernateException e){
             LOGGER.error("Hibernate error sorting by salary: " + e);

@@ -12,17 +12,17 @@ public class AppController {
         this.service = service;
         this.view = view;
     }
-
     public void startApp(){
         filter(view.options());
     }
-
     private void filter(int userChoose) {
         switch (userChoose) {
             case 1 -> service.createEmployees();
             case 2 -> service.snowAllEmployees();
             case 3 -> service.readByIdEmployee();
             case 4 -> service.deleteEmployee();
+            case 5 -> service.sortByName();
+            case 6 -> service.sortBySalary();
 
         }
 

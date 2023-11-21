@@ -14,13 +14,7 @@ import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-
-
-        AppView view = new AppView();
-        AppService service = new AppService();
-        AppController controller = new AppController(service, view);
-
-        controller.startApp();
+        AppService.startApp();
 
     }
 

@@ -67,8 +67,6 @@ public class EmployeesService {
         return stringBuilder.append("Incorrect id").toString();
     }
 
-    // Todo: This method doesn't work!
-
 
     public String deleteEmployeeById(Long id){
         stringBuilder = new StringBuilder();
@@ -85,13 +83,32 @@ public class EmployeesService {
         List<Employees> employees = repository.sortByName();
         if (!employees.isEmpty()){
             for (Employees employ: employees){
-                return stringBuilder.append(employ.getFirstName()).append(" ").append(employ.getLastName())
-                        .append(" ").append(employ.getPosition()).append(" ").append(employ.getSalary())
-                        .append(" ").append(employ.getAddress().getCity()).append(" ")
-                        .append(employ.getAddress().getZipCode()).append("\n").toString();
+                stringBuilder.append("Employee name: ").append(employ.getFirstName()) .append(" ")
+                        .append(employ.getLastName()).append(" Employee position: ").append(employ.getPosition())
+                        .append(" Employee salary: ").append(employ.getSalary()).append(" Employee address:" )
+                        .append(employ.getAddress().getCity()).append(" City code:" ).append(employ.getAddress().getZipCode())
+                        .append("\n");
             }
+            return stringBuilder.toString();
         }
         return stringBuilder.append("Empty database ").toString();
+    }
+
+    public String sortBySalary(){
+        stringBuilder = new StringBuilder();
+        List<Employees> employees = repository.sortBySalary();
+        if (!employees.isEmpty()){
+            for (Employees employ: employees) {
+                stringBuilder.append("Employee name: ").append(employ.getFirstName()) .append(" ")
+                        .append(employ.getLastName()).append(". Employee position: ").append(employ.getPosition())
+                        .append(". Employee salary: ").append(employ.getSalary()).append(". Employee address:" )
+                        .append(employ.getAddress().getCity()).append(". City code:" ).append(employ.getAddress().getZipCode())
+                        .append("\n");
+            }
+            return stringBuilder.toString();
+        }
+        return stringBuilder.append("Empty database").toString();
+
     }
 
 

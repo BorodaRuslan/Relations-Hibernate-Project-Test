@@ -16,13 +16,10 @@ public class AppView {
             menu();
             userChoose = scanner.nextInt();
 
-        } while (userChoose < 0 || userChoose > 5);
+        } while (userChoose < 0 || userChoose > 6);
         return userChoose;
 
-
     }
-
-
     private void menu(){
         System.out.println("""
                 
@@ -32,8 +29,9 @@ public class AppView {
                 2. See all employees.
                 3. See employee by id.
                 4. Delete employee.
-                5. Sorting employees.
-                0. Exit the application
+                5. Sorting employees by name.
+                6. Sorting employees by salary.
+                0. Exit the application.
                 
                 """);
     }

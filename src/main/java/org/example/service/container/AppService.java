@@ -1,15 +1,9 @@
 package org.example.service.container;
 
-import org.example.controller.CreateEmployeesController;
-import org.example.controller.DeleteController;
-import org.example.controller.ReadByIdController;
-import org.example.controller.ReadEmployeesController;
+import org.example.controller.*;
 import org.example.repositiry.impl.EmployeesRepositoryImpl;
 import org.example.service.EmployeesService;
-import org.example.view.CreateView;
-import org.example.view.DeleteView;
-import org.example.view.ReadByIdView;
-import org.example.view.ReadView;
+import org.example.view.*;
 
 public class AppService {
 
@@ -47,6 +41,33 @@ public class AppService {
         DeleteController controller = new DeleteController(service, view);
 
         controller.deleteEmployeeById();
+
+    }
+
+    public void sortByName(){
+        SortByNameView view = new SortByNameView();
+        EmployeesRepositoryImpl repository = new EmployeesRepositoryImpl();
+        EmployeesService service = new EmployeesService(repository);
+        SortByNameController controller = new SortByNameController(view, service);
+
+        controller.sortByName();
+
+    }
+
+    public void sortBySalary(){
+        SortBySalaryView view = new SortBySalaryView();
+        EmployeesRepositoryImpl repository = new EmployeesRepositoryImpl();
+        EmployeesService service = new EmployeesService(repository);
+        SortBySalaryController controller = new SortBySalaryController(view, service);
+
+        controller.sortBySalary();
+    }
+
+    public static void startApp(){
+        AppView view = new AppView();
+        AppService service = new AppService();
+        AppController controller = new AppController(service, view);
+        controller.startApp();
 
     }
 
